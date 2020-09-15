@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "C# Developer",
+    "dueDate": "2020-10-10",
+    "expectedCandidates": 5,
+    "totalCVs": 10,
+    "newCVs": 3
+  },
+  {
+    "id": 2,
+    "title": "Java Developer",
+    "dueDate": "2020-10-10",
+    "expectedCandidates": 3,
+    "totalCVs": 8,
+    "newCVs": 2
+  },
+  {
+    "id": 3,
+    "title": "Java Developer",
+    "dueDate": "2020-06-10",
+    "expectedCandidates": 5,
+    "totalCVs": 5,
+    "newCVs": 0
+  },
+  {
+    "id": 4,
+    "title": "C# Developer",
+    "dueDate": "2020-01-15",
+    "expectedCandidates": 5,
+    "totalCVs": 5,
+    "newCVs": 0
+  }
+]
