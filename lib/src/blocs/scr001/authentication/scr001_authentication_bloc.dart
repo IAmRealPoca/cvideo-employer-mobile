@@ -95,6 +95,5 @@ class AuthenticationBloc
     await _loginRepository.signOut();
 
     yield AuthenticationFailure();
-    
   }
 }

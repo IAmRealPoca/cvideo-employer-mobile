@@ -217,7 +217,8 @@ class _MyAppState extends State<MyApp> {
             },
 
             /// The initial route when the app start
-            initialRoute: AppRoutes.SCR001_SPLASH,
+            // initialRoute: AppRoutes.SCR001_SPLASH,
+            initialRoute: AppRoutes.SCR001_SCREEN,
             // home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
             //   builder: (context, state) {
             //     if (state is AuthenticationSuccess) {
