@@ -40,7 +40,7 @@ class _SCR006State extends State<SCR006> {
   bool _validateJobReq = false;
   bool _validateJobBen = false;
   bool _check = false;
-  bool _checkMajor = false;
+  bool _checkSkills = false;
   int dropdownValue;
   List<DropdownMenuItem<int>> _dropdownMenuItem = List();
   RecruitmentPostInfor recruitmentPostInfor = RecruitmentPostInfor();
@@ -66,7 +66,7 @@ class _SCR006State extends State<SCR006> {
       child: BlocBuilder<RecruitmentDetailBloc, RecruitmentDetailState>(
           builder: (context, state) {
         if (state is RecruitmentDetailFetchedSuccess) {
-          if (!_checkMajor) {
+          if (!_checkSkills) {
             recruitmentPostInfor.postId = state.recruitmentDetailPost.postId;
             recruitmentPostInfor.title = state.recruitmentDetailPost.title;
             recruitmentPostInfor.location =
@@ -85,17 +85,17 @@ class _SCR006State extends State<SCR006> {
                 state.recruitmentDetailPost.jobDescription;
             recruitmentPostInfor.jobBenefit =
                 state.recruitmentDetailPost.jobBenefit;
-            recruitmentPostInfor.majorId =
-                state.recruitmentDetailPost.major.majorId;
+            recruitmentPostInfor.skillsId =
+                state.recruitmentDetailPost.skills.skillsId;
             dropdownValue =
-                dropdownValue ?? state.recruitmentDetailPost.major.majorId;
-            for (Major major in state.listMajor) {
+                dropdownValue ?? state.recruitmentDetailPost.skills.skillsId;
+            for (Skills skills in state.listSkills) {
               _dropdownMenuItem.add(DropdownMenuItem<int>(
-                value: major.majorId,
-                child: Text(major.majorName),
+                value: skills.skillsId,
+                child: Text(skills.skillsName),
               ));
             }
-            _checkMajor = true;
+            _checkSkills = true;
           }
           return Scaffold(
             resizeToAvoidBottomInset: true,
@@ -513,14 +513,14 @@ class _SCR006State extends State<SCR006> {
                             height: _spaceBetweenTitle,
                           ),
 
-                          // //show list major
+                          // //show list skills
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Text(
                                 AppLocalizations.of(context)
-                                    .translate("scr005.major"),
+                                    .translate("scr005.skills"),
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primaryDarkColor),
@@ -546,7 +546,7 @@ class _SCR006State extends State<SCR006> {
                                     onChanged: (value) {
                                       setState(() {
                                         dropdownValue = value;
-                                        recruitmentPostInfor.majorId = value;
+                                        recruitmentPostInfor.skillsId = value;
                                       });
                                     },
                                   ),

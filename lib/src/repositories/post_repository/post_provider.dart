@@ -36,19 +36,19 @@ class PostProvider {
     return recruitmentPostDetail;
   }
 
-  Future<List<Major>> fetchMajorList(String lang) async {
+  Future<List<Skills>> fetchSkillsList(String lang) async {
     AppStorage appStorage = AppStorage.instance;
     String token = await appStorage.readSecureApiToken();
-    List<Major> listMajor;
-    final response = await AppHttpClient.get("/majors?lang=$lang",
+    List<Skills> listSkills;
+    final response = await AppHttpClient.get("/skillss?lang=$lang",
         headers: {"Authorization": "bearer $token"});
     if (successCode != response.statusCode) {
       throw Exception("Failed to loading!");
     }
     final List<dynamic> dataJson = json.decode(utf8.decode(response.bodyBytes));
 
-    listMajor = dataJson.map((e) => Major.fromJson(e)).toList();
-    return listMajor;
+    listSkills = dataJson.map((e) => Skills.fromJson(e)).toList();
+    return listSkills;
   }
 
   Future<String> updateRecruitmentPostInfo(
@@ -71,7 +71,7 @@ class PostProvider {
         'jobDescription': recruitmentPostInfor.jobDescription,
         'jobRequirement': recruitmentPostInfor.jobRequirement,
         'jobBenefit': recruitmentPostInfor.jobBenefit,
-        'majorId': recruitmentPostInfor.majorId,
+        'skillsId': recruitmentPostInfor.skillsId,
         'minSalary': recruitmentPostInfor.minSalary,
         'maxSalary': recruitmentPostInfor.maxSalary,
       }),
@@ -104,7 +104,7 @@ class PostProvider {
         'jobDescription': recruitmentPostInfor.jobDescription,
         'jobRequirement': recruitmentPostInfor.jobRequirement,
         'jobBenefit': recruitmentPostInfor.jobBenefit,
-        'majorId': recruitmentPostInfor.majorId,
+        'skillsId': recruitmentPostInfor.skillsId,
         'minSalary': recruitmentPostInfor.minSalary,
         'maxSalary': recruitmentPostInfor.maxSalary,
       }),

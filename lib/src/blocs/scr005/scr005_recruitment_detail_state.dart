@@ -27,11 +27,11 @@ class RecruitmentDetailFetching extends RecruitmentDetailState {}
 
 class RecruitmentDetailFetchedSuccess extends RecruitmentDetailState {
   final RecruitmentPostDetail recruitmentDetailPost;
-  final List<Major> listMajor;
-  RecruitmentDetailFetchedSuccess({this.recruitmentDetailPost, this.listMajor});
+  final List<Skills> listSkills;
+  RecruitmentDetailFetchedSuccess({this.recruitmentDetailPost, this.listSkills});
 
   @override
-  List<Object> get props => [recruitmentDetailPost, listMajor];
+  List<Object> get props => [recruitmentDetailPost, listSkills];
   @override
   String toString() => ' Recruitment post load success';
 }

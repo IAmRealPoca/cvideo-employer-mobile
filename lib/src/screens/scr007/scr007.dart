@@ -43,7 +43,7 @@ class _SCR007State extends State<SCR007> {
   bool _validateJobReq = false;
   bool _validateJobBen = false;
   bool _check = false;
-  bool _checkMajor = false;
+  bool _checkSkills = false;
   int dropdownValue;
   List<DropdownMenuItem<int>> _dropdownMenuItem = List();
   RecruitmentPostInfor recruitmentPostInfor = RecruitmentPostInfor();
@@ -63,13 +63,13 @@ class _SCR007State extends State<SCR007> {
     Size size = MediaQuery.of(context).size;
     return BlocProvider(
       create: (context) {
-        return MajorListBloc(postRepository: PostRepository())
-          ..add(MajorListRequest(lang: lang));
+        return SkillsListBloc(postRepository: PostRepository())
+          ..add(SkillsListRequest(lang: lang));
       },
       child:
-          BlocBuilder<MajorListBloc, MajorListState>(builder: (context, state) {
-        if (state is MajorListFetchedSuccess) {
-          if (!_checkMajor) {
+          BlocBuilder<SkillsListBloc, SkillsListState>(builder: (context, state) {
+        if (state is SkillsListFetchedSuccess) {
+          if (!_checkSkills) {
             recruitmentPostInfor.title = "";
             recruitmentPostInfor.location = "";
             recruitmentPostInfor.expectedNumber = 0;
@@ -80,14 +80,14 @@ class _SCR007State extends State<SCR007> {
             recruitmentPostInfor.jobDescription = "";
             recruitmentPostInfor.jobRequirement = "";
             recruitmentPostInfor.jobBenefit = "";
-            recruitmentPostInfor.majorId = 0;
-            dropdownValue = dropdownValue ?? state.listMajor[0].majorId;
-            for (Major major in state.listMajor) {
+            recruitmentPostInfor.skillsId = 0;
+            dropdownValue = dropdownValue ?? state.listSkills[0].skillsId;
+            for (Skills skills in state.listSkills) {
               _dropdownMenuItem.add(DropdownMenuItem<int>(
-                value: major.majorId,
-                child: Text(major.majorName),
+                value: skills.skillsId,
+                child: Text(skills.skillsName),
               ));
-              _checkMajor = true;
+              _checkSkills = true;
             }
           }
           return Scaffold(
@@ -487,14 +487,14 @@ class _SCR007State extends State<SCR007> {
                           SizedBox(
                             height: _spaceBetweenTitle,
                           ),
-                          // //show list major
+                          // //show list skills
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Text(
                                 AppLocalizations.of(context)
-                                    .translate("scr005.major"),
+                                    .translate("scr005.skills"),
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primaryDarkColor),
@@ -520,7 +520,7 @@ class _SCR007State extends State<SCR007> {
                                     onChanged: (value) {
                                       setState(() {
                                         dropdownValue = value;
-                                        recruitmentPostInfor.majorId = value;
+                                        recruitmentPostInfor.skillsId = value;
                                       });
                                     },
                                   ),
@@ -764,7 +764,7 @@ class _SCR007State extends State<SCR007> {
             ),
           );
         }
-        if (state is MajorListFetchedFailure) {
+        if (state is SkillsListFetchedFailure) {
           return Container(
             color: Colors.white,
             child: Center(

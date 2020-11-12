@@ -18,7 +18,7 @@ class RecruitmentPostInfor {
   String jobDescription;
   String jobRequirement;
   String jobBenefit;
-  int majorId;
+  int skillsId;
   int minSalary;
   int maxSalary;
 
@@ -31,7 +31,7 @@ class RecruitmentPostInfor {
       this.jobDescription,
       this.jobRequirement,
       this.jobBenefit,
-      this.majorId,
+      this.skillsId,
       this.maxSalary,
       this.minSalary});
 
@@ -45,7 +45,7 @@ class RecruitmentPostInfor {
       jobDescription: json['jobDescription'] as String ?? "",
       jobRequirement: json['jobRequirement'] as String ?? "",
       jobBenefit: json['jobBenefit'] as String ?? "",
-      majorId: json['majorId'] as int,
+      skillsId: json['skillsId'] as int,
       maxSalary: json['maxSalary'] as int,
       minSalary: json['minSalary'] as int,
     );

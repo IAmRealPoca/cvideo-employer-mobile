@@ -9,5 +9,5 @@
  * -----
  * Copyright (C) Daxua Team
  */
-export 'major/scr007_major_barrel.dart';
+export 'skills/scr007_skills_barrel.dart';
 export 'post/scr007_post_create_barrel.dart';

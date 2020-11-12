@@ -184,7 +184,7 @@ class SCR005 extends StatelessWidget {
                                       height: 20,
                                     ),
 
-                                    //show information recruitment post (location, salary, due date, number, major)
+                                    //show information recruitment post (location, salary, due date, number, skills)
                                     Container(
                                       color: AppColors.primaryColor,
                                       child: Padding(
@@ -314,7 +314,7 @@ class SCR005 extends StatelessWidget {
                                             Row(
                                               children: <Widget>[
                                                 SvgPicture.asset(
-                                                    "assets/screens/scr005/ic_major.svg",
+                                                    "assets/screens/scr005/ic_skills.svg",
                                                     width: _widthIcon,
                                                     color: Colors.white),
                                                 SizedBox(
@@ -325,11 +325,11 @@ class SCR005 extends StatelessWidget {
                                                   child: Text(
                                                     AppLocalizations.of(context)
                                                             .translate(
-                                                                "scr005.major") +
+                                                                "scr005.skills") +
                                                         state
                                                             .recruitmentDetailPost
-                                                            .major
-                                                            .majorName,
+                                                            .skills
+                                                            .skillsName,
                                                     style: TextStyle(
                                                         fontSize: _sizeText,
                                                         color: Colors.white),

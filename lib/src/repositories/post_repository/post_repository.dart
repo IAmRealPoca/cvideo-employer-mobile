@@ -20,8 +20,8 @@ class PostRepository {
           int postId, String lang) =>
       _postProvider.fetchRecruitmentPostDetail(postId, lang);
 
-  Future<List<Major>> fetchMajorList(String lang) =>
-      _postProvider.fetchMajorList(lang);
+  Future<List<Skills>> fetchSkillsList(String lang) =>
+      _postProvider.fetchSkillsList(lang);
 
   Future<String> updateRecruitmentPostInfo(
           int postId, RecruitmentPostInfor recruitmentPostInfor) =>

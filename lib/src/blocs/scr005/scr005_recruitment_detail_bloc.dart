@@ -34,10 +34,10 @@ class RecruitmentDetailBloc
       try {
         final RecruitmentPostDetail recruitmentPost = await postRepository
             .fetchRecruitmentPostDetail(event.postId, event.lang);
-        final List<Major> listMajor =
-            await postRepository.fetchMajorList(event.lang);
+        final List<Skills> listSkills =
+            await postRepository.fetchSkillsList(event.lang);
         yield RecruitmentDetailFetchedSuccess(
-            recruitmentDetailPost: recruitmentPost, listMajor: listMajor);
+            recruitmentDetailPost: recruitmentPost, listSkills: listSkills);
       } catch (_) {
         yield RecruitmentDetailFetchedFailure();
       }

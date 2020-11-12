@@ -1,7 +1,7 @@
 export 'recruitment_model.dart';
 export 'statistics_model.dart';
 export 'company.dart';
-export 'major.dart';
+export 'skills.dart';
 export 'recruitment_update_infor.dart';
 export 'scr004/application.dart';
 export 'scr004/detail_cv.dart';
